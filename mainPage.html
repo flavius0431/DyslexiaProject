@@ -15,15 +15,14 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #87CEEB;
-            /* Light blue background color */
+            background: linear-gradient(120deg, #3498db, #8e44ad);
         }
 
         #difficulty-container {
             position: fixed;
             top: 10px;
             right: 20px;
-            background-color: #f94b7f;
+            background: linear-gradient(120deg, #91c2df, #a12ed3);
             padding: 10px;
             border-radius: 10px;
             text-align: right;
@@ -35,7 +34,7 @@
             top: 90px;
             /* Adjusted top value */
             right: 20px;
-            background-color: #f94b7f;
+            background: linear-gradient(120deg, #91c2df, #a12ed3);
             padding: 10px;
             border-radius: 10px;
             text-align: right;
@@ -75,22 +74,6 @@
             background-color: #e0e0e0;
         }
 
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background-color: #87CEEB;
-            /* Light blue background color for arrows */
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            /* White color for the arrow symbol */
-            font-size: 18px;
-        }
 
         .arrow-left {
             left: -15px;
@@ -98,6 +81,12 @@
 
         .arrow-right {
             right: -15px;
+        }
+
+        /* Increase font size and bold letters and digits */
+        .level {
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -114,7 +103,7 @@
     </div>
 
     <div id="stars-container">
-        <span style="font-size:300%;color:rgb(239, 239, 63);">&starf; 0</span>
+        <span style="font-size:300%;color:rgb(239, 239, 63);">&starf; &starf; &starf; 0</span>
     </div>
 
     <div id="levels-container">
@@ -131,11 +120,9 @@
         <div class="level" onclick="startLevel(3)">
             <span class="arrow arrow-left"></span>
             <div style="display: flex; justify-content: space-around;">
-                <div style="width: 30px; height: 30px; background-color: red; border-radius: 50%;"></div>
-                <div style="width: 30px; height: 30px; background-color: green; border-radius: 50%;"></div>
-                <div style="width: 30px; height: 30px; background-color: blue; border-radius: 50%;"></div>
+                <img src="./Imagini_Litere/avion.png" alt="Sound" width="50px" height="50px">
+                <img src="./Imagini_Litere/elefant.png" alt="Sound" width="50px" height="50px">
             </div>
-            <img src="./sound.png" alt="Sound">
         </div>
     </div>
 
