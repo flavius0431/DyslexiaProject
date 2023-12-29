@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyslexia Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #87CEEB;
+            /* Light blue background color */
+        }
+
+        #difficulty-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background-color: #f94b7f;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: right;
+            margin-bottom: 50px;
+        }
+
+        #stars-container {
+            position: fixed;
+            top: 90px;
+            /* Adjusted top value */
+            right: 20px;
+            background-color: #f94b7f;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        #difficulty,
+        #stars {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #levels-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 70px;
+            /* Adjusted margin for levels */
+        }
+
+        .level {
+            cursor: pointer;
+            border: 2px solid #ccc;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: background-color 0.3s;
+            position: relative;
+            background-color: #fff;
+            /* White background color for levels */
+            min-width: 120px;
+            /* Set a minimum width for better visibility */
+            margin-bottom: 20px;
+        }
+
+        .level:hover {
+            background-color: #e0e0e0;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: #87CEEB;
+            /* Light blue background color for arrows */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            /* White color for the arrow symbol */
+            font-size: 18px;
+        }
+
+        .arrow-left {
+            left: -15px;
+        }
+
+        .arrow-right {
+            right: -15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="difficulty-container">
+        <b><label for="difficulty">Nivel dificultate:</label></b>
+        <select id="difficulty">
+            <option value="easy">1</option>
+            <option value="medium">2</option>
+            <option value="hard">3</option>
+        </select>
+    </div>
+
+    <div id="stars-container">
+        <span style="font-size:300%;color:rgb(239, 239, 63);">&starf; 0</span>
+    </div>
+
+    <div id="levels-container">
+        <div class="level" onclick="startLevel(1)">
+            <span class="arrow arrow-right"></span>
+            1 2 3
+        </div>
+        <div class="level" onclick="startLevel(2)">
+            <span class="arrow arrow-left"></span>
+            <span class="arrow arrow-right"></span>
+            <img src="./sound.png" alt="A B C">
+            A B C
+        </div>
+        <div class="level" onclick="startLevel(3)">
+            <span class="arrow arrow-left"></span>
+            <div style="display: flex; justify-content: space-around;">
+                <div style="width: 30px; height: 30px; background-color: red; border-radius: 50%;"></div>
+                <div style="width: 30px; height: 30px; background-color: green; border-radius: 50%;"></div>
+                <div style="width: 30px; height: 30px; background-color: blue; border-radius: 50%;"></div>
+            </div>
+            <img src="./sound.png" alt="Sound">
+        </div>
+    </div>
+
+
+    <script>
+        let stars = 0;
+
+        function startLevel(level) {
+            // Simulate completing a level
+            alert(`Congratulations! You completed Level ${level}`);
+
+            // Update stars (you can replace this logic with your actual game logic)
+            stars += 1;
+            document.getElementById('stars').innerText = `Stars: ${stars}`;
+        }
+    </script>
+</body>
+
+</html>
