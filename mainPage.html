@@ -129,15 +129,31 @@
 
     <script>
         let stars = 0;
-
         function startLevel(level) {
-            // Simulate completing a level
-            alert(`Congratulations! You completed Level ${level}`);
-
-            // Update stars (you can replace this logic with your actual game logic)
+            if (level == 1) {
+                window.location.href = "./NumberPage/numberPage.html";
+            }
             stars += 1;
-            document.getElementById('stars').innerText = `Stars: ${stars}`;
+            updateStarDisplay(stars);
+            localStorage.setItem('stars', stars); // Save to local storage
         }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let savedStars = localStorage.getItem('stars');
+            if (savedStars !== null) {
+                stars = parseInt(savedStars, 10); // Convert to integer
+                updateStarDisplay(stars);
+            }
+        });
+
+        // Function to update star display
+        function updateStarDisplay(stars) {
+            let starsContainer = document.getElementById('stars-container');
+            if (starsContainer) {
+                starsContainer.innerHTML = `<span style="font-size:300%;color:rgb(239, 239, 63);">&starf; &starf; &starf; ${stars}</span>`;
+            }
+        }
+
     </script>
 </body>
 
