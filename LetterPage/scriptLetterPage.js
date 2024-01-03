@@ -69,7 +69,7 @@ function matchCards(cardOne, cardTwo) {
     if(letter1 == letter2) {
 
         foundPairs++;
-        if(foundPairs == 1) {
+        if(foundPairs == 8) {
             setTimeout(() => {
                 var audio = new Audio('../congratulation-sound-effect.mp3');
                 audio.play();
