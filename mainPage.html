@@ -48,8 +48,8 @@
         }
 
         #levels-container {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             align-items: center;
             margin-top: 70px;
             /* Adjusted margin for levels */
@@ -58,7 +58,7 @@
         .level {
             cursor: pointer;
             border: 2px solid #ccc;
-            padding: 30px;
+            padding: 100px;
             border-radius: 15px;
             text-align: center;
             transition: background-color 0.3s;
@@ -67,7 +67,7 @@
             /* White background color for levels */
             min-width: 120px;
             /* Set a minimum width for better visibility */
-            margin-bottom: 20px;
+            margin: 80px;
         }
 
         .level:hover {
@@ -87,6 +87,15 @@
         .level {
             font-size: 18px;
             font-weight: bold;
+        }
+        #numbers {
+            font-size: 50px;
+            font-weight: bold;
+        }
+        #letters {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 25px;
         }
     </style>
 </head>
@@ -109,19 +118,19 @@
     <div id="levels-container">
         <div class="level" onclick="startLevel(1)">
             <span class="arrow arrow-right"></span>
-            1 2 3
+            <span id="numbers">1 2 3</span>
         </div>
         <div class="level" onclick="startLevel(2)">
             <span class="arrow arrow-left"></span>
             <span class="arrow arrow-right"></span>
             <img src="./sound.png" alt="A B C">
-            A B C
+            <span id="letters">A B C</span>
         </div>
         <div class="level" onclick="startLevel(3)">
             <span class="arrow arrow-left"></span>
             <div style="display: flex; justify-content: space-around;">
-                <img src="./Imagini_Litere/avion.png" alt="Sound" width="50px" height="50px">
-                <img src="./Imagini_Litere/elefant.png" alt="Sound" width="50px" height="50px">
+                <img src="./Imagini_Litere/avion.png" alt="Sound" width="80px" height="80px">
+                <img src="./Imagini_Litere/elefant.png" alt="Sound" width="80px" height="80px">
             </div>
         </div>
     </div>
