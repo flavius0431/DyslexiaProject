@@ -69,21 +69,26 @@ function matchCards(cardOne, cardTwo) {
     if(letter1 == letter2) {
 
         foundPairs++;
-        if(foundPairs == 8) {
+        if(foundPairs == 1) {
             setTimeout(() => {
                 var audio = new Audio('../congratulation-sound-effect.mp3');
                 audio.play();
                 
-                customAlert.alert("⭐⭐⭐ BRAVO! Ai castigat jocul! ⭐⭐⭐", "Felicitari!");
                 setTimeout(() => {
-                    customAlert.ok();
-                }, 3000);
-
-                setTimeout(() => {
-                    // redirect to main page
-                    window.location.href = "../mainPage.html";
-                }, 4000);
-            }, 1000);      
+                    var congratulationSound = new Audio('../letterSounds/congratulations-letters.mp3');
+                    congratulationSound.play();
+                    
+                    customAlert.alert("⭐⭐⭐ BRAVO! Ai castigat jocul! ⭐⭐⭐", "Felicitari!");
+                    setTimeout(() => {
+                        customAlert.ok();
+                    }, 5000);
+            
+                    setTimeout(() => {
+                        // redirect to the main page
+                        window.location.href = "../mainPage.html";
+                    }, 5000);
+                }, 1000); // Add a delay of 1000 milliseconds (1 second) between the audios
+            }, 1500);   
         }        
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
