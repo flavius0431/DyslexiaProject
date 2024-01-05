@@ -1,36 +1,58 @@
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   background: linear-gradient(120deg, #3498db, #8e44ad);
 }
-.wrapper{
+
+.back-button {
+  background: linear-gradient(120deg, #425a69, #a12ed3);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wrapper {
   padding: 25px;
   border-radius: 10px;
   background: #F8F8F8;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-.cards, .card, .view{
+
+.cards,
+.card,
+.view {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.cards{
+
+.cards {
   height: 400px;
   width: 400px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.cards .card{
+
+.cards .card {
   cursor: pointer;
   list-style: none;
   user-select: none;
@@ -40,27 +62,36 @@ body{
   height: calc(100% / 4 - 10px);
   width: calc(100% / 4 - 10px);
 }
-.card.shake{
+
+.card.shake {
   animation: shake 0.30s ease-in-out;
 }
+
 @keyframes shake {
-  0%, 100%{
+
+  0%,
+  100% {
     transform: translateX(0);
   }
-  20%{
+
+  20% {
     transform: translateX(-5px);
   }
-  40%{
+
+  40% {
     transform: translateX(5px);
   }
-  60%{
+
+  60% {
     transform: translateX(-5px);
   }
-  80%{
+
+  80% {
     transform: translateX(5px);
   }
 }
-.card .view{
+
+.card .view {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -68,30 +99,36 @@ body{
   background: #fff;
   pointer-events: none;
   backface-visibility: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.25s linear;
 }
-.card .front-view img{
+
+.card .front-view img {
   width: 19px;
 }
 
-.card .back-view img{
+.card .back-view img {
   max-width: 45px;
 }
-.card .back-view{
+
+.card .back-view {
   transform: rotateY(-180deg);
 }
-.card.flip .back-view{
+
+.card.flip .back-view {
   transform: rotateY(0);
 }
-.card.flip .front-view{
+
+.card.flip .front-view {
   transform: rotateY(180deg);
 }
-.card .front-view span{
-    font-size: 33px;
-    color: #8A6EFD;
+
+.card .front-view span {
+  font-size: 33px;
+  color: #8A6EFD;
 }
-.card-number{
+
+.card-number {
   font-size: 33px;
   color: #000000;
 }
@@ -102,46 +139,51 @@ body{
 /* ---------------Animation---------------- */
 
 .slit-in-vertical {
-	-webkit-animation: slit-in-vertical 0.45s ease-out both;
-	        animation: slit-in-vertical 0.45s ease-out both;
+  -webkit-animation: slit-in-vertical 0.45s ease-out both;
+  animation: slit-in-vertical 0.45s ease-out both;
 }
 
 @-webkit-keyframes slit-in-vertical {
   0% {
     -webkit-transform: translateZ(-800px) rotateY(90deg);
-            transform: translateZ(-800px) rotateY(90deg);
+    transform: translateZ(-800px) rotateY(90deg);
     opacity: 0;
   }
+
   54% {
     -webkit-transform: translateZ(-160px) rotateY(87deg);
-            transform: translateZ(-160px) rotateY(87deg);
+    transform: translateZ(-160px) rotateY(87deg);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: translateZ(0) rotateY(0);
-            transform: translateZ(0) rotateY(0);
+    transform: translateZ(0) rotateY(0);
   }
 }
+
 @keyframes slit-in-vertical {
   0% {
     -webkit-transform: translateZ(-800px) rotateY(90deg);
-            transform: translateZ(-800px) rotateY(90deg);
+    transform: translateZ(-800px) rotateY(90deg);
     opacity: 0;
   }
+
   54% {
     -webkit-transform: translateZ(-160px) rotateY(87deg);
-            transform: translateZ(-160px) rotateY(87deg);
+    transform: translateZ(-160px) rotateY(87deg);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: translateZ(0) rotateY(0);
-            transform: translateZ(0) rotateY(0);
+    transform: translateZ(0) rotateY(0);
   }
 }
 
 /*---------------#region Alert--------------- */
 
-#dialogoverlay{
+#dialogoverlay {
   display: none;
   opacity: .8;
   position: fixed;
@@ -151,16 +193,16 @@ body{
   z-index: 10;
 }
 
-#dialogbox{
+#dialogbox {
   display: none;
   position: absolute;
   background: linear-gradient(120deg, #3498db, #8e44ad);
-  border-radius:7px; 
+  border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.575);
   transition: 0.3s;
   width: 40%;
   z-index: 10;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
   margin: auto;
@@ -227,8 +269,10 @@ body{
   top: 50%;
   border-radius: 50%;
   padding: 50%;
-  width: 32px; /* Safari */
-  height: 32px; /* Safari */
+  width: 32px;
+  /* Safari */
+  height: 32px;
+  /* Safari */
   background-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
   opacity: 0;
   transform: translate(-50%, -50%) scale(1);
@@ -280,29 +324,30 @@ body{
   opacity: 0;
 }
 
-#dialogbox > div{ 
-    background:#FFF; 
-    margin:8px; 
+#dialogbox>div {
+  background: #FFF;
+  margin: 8px;
 }
 
-#dialogbox > div > #dialogboxhead{ 
-    background: linear-gradient(120deg, #5eade2, #9e71b1);
-    font-size:19px; 
-  padding:10px; 
-  color:rgb(255, 255, 255); 
-  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+#dialogbox>div>#dialogboxhead {
+  background: linear-gradient(120deg, #5eade2, #9e71b1);
+  font-size: 19px;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#dialogbox > div > #dialogboxbody{ 
-    background: linear-gradient(120deg, #3498db, #8e44ad);
-    padding:20px; 
-  color:#FFF; 
-  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+#dialogbox>div>#dialogboxbody {
+  background: linear-gradient(120deg, #3498db, #8e44ad);
+  padding: 20px;
+  color: #FFF;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#dialogbox > div > #dialogboxfoot{ 
-    background: linear-gradient(120deg, #3498db, #8e44ad);
-    padding:10px; 
-  text-align:right; 
+#dialogbox>div>#dialogboxfoot {
+  background: linear-gradient(120deg, #3498db, #8e44ad);
+  padding: 10px;
+  text-align: right;
 }
+
 /*#endregion Alert*/

@@ -48,8 +48,8 @@
         }
 
         #levels-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-direction: column;
             align-items: center;
             margin-top: 70px;
             /* Adjusted margin for levels */
@@ -58,7 +58,7 @@
         .level {
             cursor: pointer;
             border: 2px solid #ccc;
-            padding: 100px;
+            padding: 30px;
             border-radius: 15px;
             text-align: center;
             transition: background-color 0.3s;
@@ -67,7 +67,7 @@
             /* White background color for levels */
             min-width: 120px;
             /* Set a minimum width for better visibility */
-            margin: 80px;
+            margin-bottom: 20px;
         }
 
         .level:hover {
@@ -87,15 +87,6 @@
         .level {
             font-size: 18px;
             font-weight: bold;
-        }
-        #numbers {
-            font-size: 50px;
-            font-weight: bold;
-        }
-        #letters {
-            font-size: 40px;
-            font-weight: bold;
-            margin: 25px;
         }
     </style>
 </head>
@@ -118,19 +109,19 @@
     <div id="levels-container">
         <div class="level" onclick="startLevel(1)">
             <span class="arrow arrow-right"></span>
-            <span id="numbers">1 2 3</span>
+            1 2 3
         </div>
         <div class="level" onclick="startLevel(2)">
             <span class="arrow arrow-left"></span>
             <span class="arrow arrow-right"></span>
             <img src="./sound.png" alt="A B C">
-            <span id="letters">A B C</span>
+            A B C
         </div>
         <div class="level" onclick="startLevel(3)">
             <span class="arrow arrow-left"></span>
             <div style="display: flex; justify-content: space-around;">
-                <img src="./Imagini_Litere/avion.png" alt="Sound" width="80px" height="80px">
-                <img src="./Imagini_Litere/elefant.png" alt="Sound" width="80px" height="80px">
+                <img src="./Imagini_Litere/avion.png" alt="Sound" width="50px" height="50px">
+                <img src="./Imagini_Litere/elefant.png" alt="Sound" width="50px" height="50px">
             </div>
         </div>
     </div>
@@ -138,33 +129,17 @@
 
     <script>
         let stars = 0;
+
         function startLevel(level) {
-            if (level == 1) {
-                window.location.href = "./NumberPage/numberPage.html";
-            } else if (level == 2) {
-                window.location.href = "./LetterPage/letterPage.html";
+            if (level === 1) {
+                window.location.href = 'NumberPage/numberPage.html';
+            } else if (level === 2) {
+                window.location.href = 'LetterPage/letterPage.html';
             }
-            stars += 1;
-            updateStarDisplay(stars);
-            localStorage.setItem('stars', stars); // Save to local storage
-        }
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-            let savedStars = localStorage.getItem('stars');
-            if (savedStars !== null) {
-                stars = parseInt(savedStars, 10); // Convert to integer
-                updateStarDisplay(stars);
-            }
-        });
-
-        // Function to update star display
-        function updateStarDisplay(stars) {
-            let starsContainer = document.getElementById('stars-container');
-            if (starsContainer) {
-                starsContainer.innerHTML = `<span style="font-size:300%;color:rgb(239, 239, 63);">&starf; &starf; &starf; ${stars}</span>`;
+            else if (level === 3) {
+                // TODO: this will be implemented when the images page is done
             }
         }
-
     </script>
 </body>
 
