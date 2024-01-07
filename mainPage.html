@@ -128,18 +128,32 @@
 
 
     <script>
-        let stars = 0;
+        function getStarsCountFromURL() {
+            let params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('stars')) || 0;  // Returns 0 if 'stars' param is not present
+        }
 
         function startLevel(level) {
-            if (level === 1) {
-                window.location.href = 'NumberPage/numberPage.html';
-            } else if (level === 2) {
-                window.location.href = 'LetterPage/letterPage.html';
-            }
-            else if (level === 3) {
-                // TODO: this will be implemented when the images page is done
+            let currentStars = getStarsCountFromURL();
+            switch (level) {
+                case 1:
+                    window.location.href = `NumberPage/numberPage.html?stars=${currentStars}`;
+                    break;
+                case 2:
+                    window.location.href = `LetterPage/letterPage.html?stars=${currentStars}`;
+                    break;
+                case 3:
+                    // TODO: implement redirection for the images page
+                    break;
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let starsCount = getStarsCountFromURL();
+            document.getElementById('stars-container').innerHTML = 
+                `<span style="font-size:300%;color:rgb(239, 239, 63);">&starf; &starf; &starf; ${starsCount}</span>`;
+        });
+
     </script>
 </body>
 

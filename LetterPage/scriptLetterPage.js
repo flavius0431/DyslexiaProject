@@ -5,9 +5,14 @@ let cardOne = null, cardTwo = null;
 let disableClick = false;
 
 function goBack() {
-    window.location.href = '../mainPage.html';
+    let currentStars = getStarsCountFromURL();
+    window.location.href = `../mainPage.html?stars=${currentStars}`;
 }
 
+function getStarsCountFromURL() {
+    let params = new URLSearchParams(window.location.search);
+    return parseInt(params.get('stars')) || 0;
+}
 
 function flipCard(e) {
     let clickedCard = e.target;
@@ -88,7 +93,10 @@ function matchCards(cardOne, cardTwo) {
 
                     setTimeout(() => {
                         // redirect to the main page
-                        window.location.href = "../mainPage.html";
+                        let currentStars = getStarsCountFromURL();
+                        currentStars++;  
+                        // Redirect to the main page with the updated stars count
+                        window.location.href = `../mainPage.html?stars=${currentStars}`;
                     }, 5000);
                 }, 1000); // Add a delay of 1000 milliseconds (1 second) between the audios
             }, 1500);
