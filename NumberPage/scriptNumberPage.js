@@ -43,16 +43,21 @@ function matchCards(cardOne, cardTwo) {
                 var audio = new Audio('../congratulation-sound-effect.mp3');
                 audio.play();
 
-                customAlert.alert("⭐⭐⭐ BRAVO! Ai castigat jocul! ⭐⭐⭐", "Felicitari!");
                 setTimeout(() => {
-                    customAlert.ok();
-                }, 3000);
+                    var congratulationSound = new Audio('congratulation-sound-numbers.mp3');
+                    congratulationSound.play();
 
-                setTimeout(() => {
-                    // redirect to main page
-                    window.location.href = "../mainPage.html";
-                }, 2000);
-            }, 1000);
+                    customAlert.alert("⭐⭐⭐ BRAVO! Ai castigat jocul! ⭐⭐⭐", "Felicitari!");
+                    setTimeout(() => {
+                        customAlert.ok();
+                    }, 5000);
+
+                    setTimeout(() => {
+                        // redirect to the main page
+                        window.location.href = "../mainPage.html";
+                    }, 5000);
+                }, 1500); // Add a delay of 1000 milliseconds (1 second) between the audios
+            }, 1500);
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
