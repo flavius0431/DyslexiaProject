@@ -126,7 +126,6 @@
         </div>
     </div>
 
-
     <script>
         function getStarsCountFromURL() {
             let params = new URLSearchParams(window.location.search);
@@ -149,8 +148,15 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(function () {
+                var startingSound = new Audio('welcomeSound.mp3');
+                startingSound.playbackRate = 0.8;
+
+                startingSound.play();
+            }, 1500);
+
             let starsCount = getStarsCountFromURL();
-            document.getElementById('stars-container').innerHTML = 
+            document.getElementById('stars-container').innerHTML =
                 `<span style="font-size:300%;color:rgb(239, 239, 63);">&starf; &starf; &starf; ${starsCount}</span>`;
         });
 
