@@ -134,9 +134,21 @@
 
         function startLevel(level, difficulty) {
             let currentStars = getStarsCountFromURL();
+            console.log(difficulty * 10);
+            console.log(level);
             switch (level) {
                 case 1:
-                    window.location.href = `NumberPage/numberPage.html?stars=${currentStars}`;
+                    switch (difficulty) {
+                        case 1:
+                            window.location.href = `NumberPage1/numberPage.html?stars=${currentStars}`;
+                            break;
+                        case 2:
+                            window.location.href = `NumberPage2/numberPage.html?stars=${currentStars}`;
+                            break;
+                        case 3:
+                            window.location.href = `NumberPage3/numberPage.html?stars=${currentStars}`;
+                            break;
+                    }
                     break;
                 case 2:
                     window.location.href = `LetterPage/letterPage.html?stars=${currentStars}`;
