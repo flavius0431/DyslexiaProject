@@ -96,9 +96,9 @@
     <div id="difficulty-container">
         <b><label for="difficulty">Nivel dificultate:</label></b>
         <select id="difficulty">
-            <option value="easy">1</option>
-            <option value="medium">2</option>
-            <option value="hard">3</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
         </select>
     </div>
 
@@ -107,17 +107,17 @@
     </div>
 
     <div id="levels-container">
-        <div class="level" onclick="startLevel(1)">
+        <div class="level" onclick="startLevel(1,getSelectedDifficulty())">
             <span class="arrow arrow-right"></span>
             1 2 3
         </div>
-        <div class="level" onclick="startLevel(2)">
+        <div class="level" onclick="startLevel(2,getSelectedDifficulty())">
             <span class="arrow arrow-left"></span>
             <span class="arrow arrow-right"></span>
             <img src="./sound.png" alt="A B C">
             A B C
         </div>
-        <div class="level" onclick="startLevel(3)">
+        <div class="level" onclick="startLevel(3,getSelectedDifficulty())">
             <span class="arrow arrow-left"></span>
             <div style="display: flex; justify-content: space-around;">
                 <img src="./Imagini_Litere/avion.png" alt="Sound" width="50px" height="50px">
@@ -132,7 +132,7 @@
             return parseInt(params.get('stars')) || 0;  // Returns 0 if 'stars' param is not present
         }
 
-        function startLevel(level) {
+        function startLevel(level, difficulty) {
             let currentStars = getStarsCountFromURL();
             switch (level) {
                 case 1:
@@ -142,15 +142,46 @@
                     window.location.href = `LetterPage/letterPage.html?stars=${currentStars}`;
                     break;
                 case 3:
-                    window.location.href = `ImageLetterPage/imageLetterPage.html?stars=${currentStars}`;
-                    break;
+                    switch(difficulty){
+                        case 1:
+                            window.location.href = `ImageLetterPage1/imageLetterPage.html?stars=${currentStars}`;
+                            break;
+                        case 2:
+                            window.location.href = `ImageLetterPage2/imageLetterPage.html?stars=${currentStars}`;
+                            break;
+                        case 3:
+                            window.location.href = `ImageLetterPage3/imageLetterPage.html?stars=${currentStars}`;
+                            break;
+                    }
             }
         }
+
+        function getSelectedDifficulty() {
+            // Get the <select> element by its ID
+            var difficultySelect = document.getElementById("difficulty");
+
+            // Get the selected option
+            var selectedOption = difficultySelect.options[difficultySelect.selectedIndex];
+
+            // Parse the value of the selected option as an integer
+            var selectedDifficulty = parseInt(selectedOption.value);
+
+            // Check if the parsing was successful, and return the result
+            if (!isNaN(selectedDifficulty)) {
+                return selectedDifficulty;
+            } else {
+                // Default value or error handling if the parsing fails
+                return 1; // Defaulting to 1 in case of an issue
+            }
+        }
+
+        
+        
 
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function () {
                 var startingSound = new Audio('welcomeSound.mp3');
-                startingSound.playbackRate = 0.8;
+                
 
                 startingSound.play();
             }, 1500);
