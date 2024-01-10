@@ -151,7 +151,17 @@
                     }
                     break;
                 case 2:
-                    window.location.href = `LetterPage/letterPage.html?stars=${currentStars}`;
+                    switch (difficulty) {
+                        case 1:
+                            window.location.href = `LetterPage2/letterPage.html?stars=${currentStars}`;
+                            break;
+                        case 2:
+                            window.location.href = `LetterPage1/letterPage.html?stars=${currentStars}`;
+                            break;
+                        case 3:
+                            window.location.href = `LetterPage3/letterPage.html?stars=${currentStars}`;
+                            break;
+                    }
                     break;
                 case 3:
                     switch(difficulty){
